@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    .logo {
+        width: 100px;
+        height: 100px;
+        ion-icon {
+            font-size: 100px;
+        }
+    }
+    h1 {
+        font-size: 3em;
+        font-weight: 700;
+    }
+    .items {
+        display: flex;
+        align-items: center;
+        .item {
+            
+            margin: 0 10px;
+            font-size: 1.5em;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+}
