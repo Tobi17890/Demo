@@ -1,1 +1,12 @@
-<p>filtering-countries works!</p>
+<div class="container">
+    <div class="asc-sorting">
+        <button class="btn btn-primary" (click)="sortAsc()">Sort Asc</button>
+        <ion-icon name="chevron-expand-outline"></ion-icon>
+    </div>
+    <div class="decs-sorting">
+        <button class="btn btn-primary" (click)="sortDesc()">Sort Desc</button>
+        <ion-icon name="chevron-expand-outline"></ion-icon>
+    </div>
+</div>
+
+<app-countries></app-countries>

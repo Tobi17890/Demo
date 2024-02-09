@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class FilteringCountriesComponent {
 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  sortAsc() {
+    // Sort the countries in ascending order
+  }
+
+  sortDesc() {
+    // Sort the countries in descending order
+  }
 }
