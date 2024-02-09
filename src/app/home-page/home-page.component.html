@@ -1,11 +1,21 @@
 <div class="container">
     <div class="logo">
-        <ion-icon name="earth-outline"></ion-icon>
+        <img src="assets/earth.png" alt="">
     </div>
-    <h1>Countries</h1>
+    <div class="fuzzy-search">
+        <input type="text" placeholder="Search for a country...">
+        <div class="icon">
+            <ion-icon name="search-outline"></ion-icon>
+        </div>
+    </div>
     <div class="items">
-        <div class="item">Home</div>
-        <div class="item">International</div>
-        <div class="item">External</div>
+        <p class="item">Home</p>
+        <p class="item">All Countries</p>
+        <a class="item github" routerLink="/">
+            <ion-icon name="logo-github"></ion-icon>
+        </a>
     </div>
+
 </div>
+<app-filtering-countries></app-filtering-countries>
+
