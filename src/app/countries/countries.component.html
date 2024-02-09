@@ -1,168 +1,22 @@
-<div class="container-countries">
-    <div class="con-country">
+<div class="container-countries" >
+  <div class="con-country"*ngFor="let country of countries">
+    <div class="over-hidden">
       <img
-        src="assets/Australia.svg"
+        [src]="country?.flags?.png"
         alt=""
       />
-      <h3 class="name-country">Australia</h3>
-      <p class="population">Population: 25,499,884</p>
-      <p class="region">Region: Oceania</p>
-      <p class="capital">Capital: Canberra</p>
     </div>
-    <div class="con-country">
-      <img
-        src="assets/USA.svg"
-        alt=""
-      />
-      <h3 class="name-country">United States</h3>
-      <p class="population">Population: 331,449,281</p>
-      <p class="region">Region: Americas</p>
-      <p class="capital">Capital: Washington, D.C.</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/France.webp"
-        alt=""
-      />
-      <h3 class="name-country">France</h3>
-      <p class="population">Population: 65,273,511</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Paris</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/denmark.webp"
-        alt=""
-      />
-      <h3 class="name-country">Denmark</h3>
-      <p class="population">Population: 5,792,202</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Copenhagen</p>
-    </div>
+    <h3 class="name-country">
+      {{ country?.name?.official.length <= 22 ? country?.name?.official : (country?.name?.official | slice:0:22) + '...' }}
+    </h3>
+    <p class="population"> Name : 
+      <span class="name-con">
+        {{ country?.altSpellings[1]?.length <= 15 ? country?.altSpellings[1] : (country?.altSpellings[1] | slice:0:15) + '...' }}
+      </span>
+    </p>
+    <!-- <p class="region"> CCA2 : {{country?.cca2}}</p>
+    <p class="region"> CCA3 : {{country?.cca3}}</p> -->
+    <p class="capital"> IDD Code : {{country?.idd?.root}}</p>
   </div>
-  <div class="container-countries">
-    <div class="con-country">
-      <img
-        src="assets/Australia.svg"
-        alt=""
-      />
-      <h3 class="name-country">Australia</h3>
-      <p class="population">Population: 25,499,884</p>
-      <p class="region">Region: Oceania</p>
-      <p class="capital">Capital: Canberra</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/USA.svg"
-        alt=""
-      />
-      <h3 class="name-country">United States</h3>
-      <p class="population">Population: 331,449,281</p>
-      <p class="region">Region: Americas</p>
-      <p class="capital">Capital: Washington, D.C.</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/France.webp"
-        alt=""
-      />
-      <h3 class="name-country">France</h3>
-      <p class="population">Population: 65,273,511</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Paris</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/denmark.webp"
-        alt=""
-      />
-      <h3 class="name-country">Denmark</h3>
-      <p class="population">Population: 5,792,202</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Copenhagen</p>
-    </div>
-  </div>
-  <div class="container-countries">
-    <div class="con-country">
-      <img
-        src="assets/Australia.svg"
-        alt=""
-      />
-      <h3 class="name-country">Australia</h3>
-      <p class="population">Population: 25,499,884</p>
-      <p class="region">Region: Oceania</p>
-      <p class="capital">Capital: Canberra</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/USA.svg"
-        alt=""
-      />
-      <h3 class="name-country">United States</h3>
-      <p class="population">Population: 331,449,281</p>
-      <p class="region">Region: Americas</p>
-      <p class="capital">Capital: Washington, D.C.</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/France.webp"
-        alt=""
-      />
-      <h3 class="name-country">France</h3>
-      <p class="population">Population: 65,273,511</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Paris</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/denmark.webp"
-        alt=""
-      />
-      <h3 class="name-country">Denmark</h3>
-      <p class="population">Population: 5,792,202</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Copenhagen</p>
-    </div>
-  </div>
-  <div class="container-countries">
-    <div class="con-country">
-      <img
-        src="assets/Australia.svg"
-        alt=""
-      />
-      <h3 class="name-country">Australia</h3>
-      <p class="population">Population: 25,499,884</p>
-      <p class="region">Region: Oceania</p>
-      <p class="capital">Capital: Canberra</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/USA.svg"
-        alt=""
-      />
-      <h3 class="name-country">United States</h3>
-      <p class="population">Population: 331,449,281</p>
-      <p class="region">Region: Americas</p>
-      <p class="capital">Capital: Washington, D.C.</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/France.webp"
-        alt=""
-      />
-      <h3 class="name-country">France</h3>
-      <p class="population">Population: 65,273,511</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Paris</p>
-    </div>
-    <div class="con-country">
-      <img
-        src="assets/denmark.webp"
-        alt=""
-      />
-      <h3 class="name-country">Denmark</h3>
-      <p class="population">Population: 5,792,202</p>
-      <p class="region">Region: Europe</p>
-      <p class="capital">Capital: Copenhagen</p>
-    </div>
-  </div>
+</div>
+<app-pagination></app-pagination>
