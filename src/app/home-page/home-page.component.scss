@@ -4,11 +4,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 70px;
-  background: #ecf1f9;
+  background: #FFFFFF;
   position: sticky;
   top: 0;
   width: calc(100% - 10px);
   z-index: 1;
+  border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   .logo {
     width: 100px;
@@ -29,7 +30,7 @@
     display: flex;
     align-items: center;
     background-color: #ebf1fa;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 0 20px;
     border-radius: 30px;
     input {
@@ -101,7 +102,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    background-color: #ebf1fa;
+    background-color: #FFFFFF;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     .over-hidden {
@@ -153,7 +154,7 @@
     justify-content: space-between;
     padding: 10px 20px;
     width: 200px;
-    background-color: #ebf1fa;
+    background-color: #FFFFFF;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     transition: all 0.1s ease-in-out;
@@ -184,7 +185,7 @@
     justify-content: space-between;
     padding: 10px 20px;
     width: 200px;
-    background-color: #ebf1fa;
+    background-color: #FFFFFF;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     margin-left: 20px;
