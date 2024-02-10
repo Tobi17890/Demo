@@ -266,6 +266,7 @@
       }
     }
     .fuzzy-search {
+      margin: 10px;
       input {
         font-size: 16px;
       }
@@ -424,6 +425,8 @@
       display: none;
     }
     .fuzzy-search {
+      padding: 0 10px;
+      margin: 10px;
       input {
         font-size: 14px;
       }
