@@ -1,19 +1,77 @@
-<div class="container">
-    <div class="logo">
-        <img src="assets/earth.png" alt="">
+<div class="container-header">
+  <div class="logo">
+    <img src="assets/earth.png" alt="" />
+  </div>
+  <div class="fuzzy-search">
+    <input
+      type="text"
+      placeholder="Search for a country..."
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="searchTermChanged.next(searchTerm)"
+    />
+    <div class="icon">
+      <ion-icon name="search-outline"></ion-icon>
     </div>
-    <div class="fuzzy-search">
-        <input type="text" placeholder="Search for a country...">
-        <div class="icon">
-            <ion-icon name="search-outline"></ion-icon>
-        </div>
-    </div>
-    <div class="items">
-        <p class="item" routerLink="/">Home</p>
-        <p class="item" routerLink="/allcountries">All Countries</p>
-        <a class="item github" href="https://github.com/Tobi17890/Demo">
-            <ion-icon name="logo-github"></ion-icon>
-        </a>
-    </div>
+  </div>
+  <div class="items">
+    <p class="item" routerLink="/">Home</p>
+    <p class="item" routerLink="/allcountries">All Countries</p>
+    <a class="item github" href="https://github.com/Tobi17890/Demo">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </div>
 </div>
-<app-filtering-countries></app-filtering-countries>
+
+<div class="container-filtering" *ngIf="display">
+  <div class="asc-sorting" (click)="sortAsc()">
+    <button class="btn btn-primary">Sort Asc</button>
+    <ion-icon name="chevron-expand-outline"></ion-icon>
+  </div>
+  <div class="decs-sorting" (click)="sortDesc()">
+    <button class="btn btn-primary">Sort Desc</button>
+    <ion-icon name="chevron-expand-outline"></ion-icon>
+  </div>
+</div>
+<div class="container-countries">
+  <div
+    class="con-country"
+    *ngFor="let country of sortedData | filter : searchTerm"
+  >
+    <div class="over-hidden">
+      <img [src]="country?.flags?.png" alt="" />
+    </div>
+    <h3 class="name-country" (click)="openDialog(country)">
+      {{
+        country?.name?.official.length <= 22
+          ? country?.name?.official
+          : (country?.name?.official | slice : 0 : 22) + "..."
+      }}
+    </h3>
+    <p class="population">
+      Name :
+      <span class="name-con">
+        {{
+          country?.altSpellings[1]?.length <= 15
+            ? country?.altSpellings[1]
+            : (country?.altSpellings[1] | slice : 0 : 15) + "..."
+        }}
+      </span>
+    </p>
+    <!-- <p class="region"> CCA2 : {{country?.cca2}}</p>
+      <p class="region"> CCA3 : {{country?.cca3}}</p> -->
+    <p class="capital">IDD Code : {{ country?.idd?.root }}</p>
+  </div>
+</div>
+<div class="pagination" *ngIf="display">
+  <a (click)="previousPage()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </a>
+  <a [class.active]="currentPage === 1" (click)="changePage(1)">1</a>
+  <a [class.active]="currentPage === 2" (click)="changePage(2)">2</a>
+  <a [class.active]="currentPage === 3" (click)="changePage(3)">3</a>
+  <a [class.active]="currentPage === 4" (click)="changePage(4)">4</a>
+  <a [class.active]="currentPage === 5" (click)="changePage(5)">5</a>
+  <a (click)="nextPage()">
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </a>
+</div>

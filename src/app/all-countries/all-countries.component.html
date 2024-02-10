@@ -3,7 +3,7 @@
         <img src="assets/earth.png" alt="">
     </div>
     <div class="fuzzy-search">
-        <input type="text" placeholder="Search for a country...">
+        <input type="text" placeholder="Search for a country..." [(ngModel)]="searchTerm">
         <div class="icon">
             <ion-icon name="search-outline"></ion-icon>
         </div>
@@ -17,14 +17,14 @@
     </div>
 </div>
 <div class="container-countries" >
-    <div class="con-country"*ngFor="let country of countries">
+    <div class="con-country"*ngFor="let country of countries | filter:searchTerm">
       <div class="over-hidden">
         <img
           [src]="country?.flags?.png"
           alt=""
         />
       </div>
-      <h3 class="name-country">
+      <h3 class="name-country" (click)="openDialog(country)">
         {{ country?.name?.official.length <= 22 ? country?.name?.official : (country?.name?.official | slice:0:22) + '...' }}
       </h3>
       <p class="population"> Name : 
@@ -32,8 +32,6 @@
           {{ country?.altSpellings[1]?.length <= 15 ? country?.altSpellings[1] : (country?.altSpellings[1] | slice:0:15) + '...' }}
         </span>
       </p>
-      <!-- <p class="region"> CCA2 : {{country?.cca2}}</p>
-      <p class="region"> CCA3 : {{country?.cca3}}</p> -->
       <p class="capital"> IDD Code : {{country?.idd?.root}}</p>
     </div>
-  </div>
+</div>

@@ -2,21 +2,16 @@ import { NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AllCountriesComponent } from './all-countries/all-countries.component';
-import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: '', // Home page route
+    path: '',
     component: HomePageComponent,
   },
   {
-    path: 'allcountries', // All countries route
+    path: 'allcountries', 
     component: AllCountriesComponent,
   },
-  {
-    path: 'layout', // Layout route
-    component: LayoutComponent,  
-  }
 ];
 
 @NgModule({
@@ -25,7 +20,6 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
   constructor(private router: Router) {
-    // Smooth scroll to top when route changes
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;

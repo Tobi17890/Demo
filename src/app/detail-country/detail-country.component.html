@@ -1,0 +1,30 @@
+<div class="dialog-overlay">
+
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <h2 class="dialog-title">Country Details</h2>
+            <ion-icon name="close-outline" (click)="onNoClick()"></ion-icon>
+        </div>
+        <div class="container-countries" >
+            <div class="con-country">
+              <div class="over-hidden">
+                <img
+                  [src]="data?.flags?.png"
+                  alt=""
+                />
+              </div>
+              <h3 class="name-country">
+                {{ data?.name?.official }}
+              </h3>
+              <p class="population"> Name : 
+                <span class="name-con">
+                  {{ data?.altSpellings[1] }}
+                </span>
+              </p>
+              <p class="region"> CCA2 : {{data?.cca2}}</p>
+              <p class="region"> CCA3 : {{data?.cca3}}</p>
+              <p class="capital"> IDD Code : {{data?.idd?.root}}</p>
+            </div>
+        </div>
+    </div>
+</div>

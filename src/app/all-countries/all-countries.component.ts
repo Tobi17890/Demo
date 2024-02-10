@@ -1,28 +1,39 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Country } from '../Interface/country';
 import { GetCountriesService } from '../Service/get-countries.service';
-import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { Country } from '../Interface/country';
+import { DetailCountryComponent } from '../detail-country/detail-country.component';
 
 @Component({
   selector: 'app-all-countries',
   templateUrl: './all-countries.component.html',
-  styleUrl: './all-countries.component.scss'
+  styleUrls: ['./all-countries.component.scss']
 })
 export class AllCountriesComponent {
-  countries: any[] = []; 
+  searchTerm: string = ''; 
+  countries: any[] = [];
 
-  constructor(private country: GetCountriesService) {}
+  constructor(private country: GetCountriesService, public dialog: MatDialog) {}
 
   ngOnInit() {
-
-    this.country.getCountries().subscribe((data) => {      
-      this.countries = data.sort((a, b) => {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
+    this.country.getCountries().subscribe((data) => {
+      this.countries = data.sort((a: any, b: any) => {
+        const nameA = a.name?.official || '';
+        const nameB = b.name?.official || '';
+        return nameA.localeCompare(nameB);
       });
+    });
+  }
+
+  openDialog(countryData: Country): void {
+    const dialogRef = this.dialog.open(DetailCountryComponent, {
+      width: '250px', 
+      data: countryData,
+      disableClose: false
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }

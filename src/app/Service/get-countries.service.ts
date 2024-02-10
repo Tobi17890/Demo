@@ -1,19 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Country } from '../Interface/country';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetCountriesService {
+  private countriesSubject: BehaviorSubject<Country[]> = new BehaviorSubject<Country[]>([]);
 
-  constructor(private http: HttpClient) {}
-
-  getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>('https://restcountries.com/v3.1/all');
+  constructor(private http: HttpClient) {
+    this.loadCountries();
   }
 
-  // get all all countries and sort them by name Asc
+  private loadCountries(): void {
+    this.http.get<Country[]>('https://restcountries.com/v3.1/all').subscribe(
+      (countries: Country[]) => {
+        this.countriesSubject.next(countries);
+      },
+      (error) => {
+        console.error('Error loading countries:', error);
+      }
+    );
+  }
 
+  getCountries(): Observable<Country[]> {
+    return this.countriesSubject.asObservable();
+  }
+
+  updateCountries(countries: Country[]): void {
+    this.countriesSubject.next(countries);
+  }
 }

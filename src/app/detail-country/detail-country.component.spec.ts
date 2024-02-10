@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutComponent } from './layout.component';
+import { DetailCountryComponent } from './detail-country.component';
 
-describe('LayoutComponent', () => {
-  let component: LayoutComponent;
-  let fixture: ComponentFixture<LayoutComponent>;
+describe('DetailCountryComponent', () => {
+  let component: DetailCountryComponent;
+  let fixture: ComponentFixture<DetailCountryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      imports: [DetailCountryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LayoutComponent);
+    fixture = TestBed.createComponent(DetailCountryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
