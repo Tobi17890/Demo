@@ -14,7 +14,10 @@ export class DetailCountryComponent {
   constructor(
     public dialogRef: MatDialogRef<DetailCountryComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {}
+  ) {
+    console.log(this.data);
+
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

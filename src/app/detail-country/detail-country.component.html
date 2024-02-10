@@ -13,6 +13,7 @@
                   alt=""
                 />
               </div>
+              
               <h3 class="name-country">
                 {{ data?.name?.official }}
               </h3>
@@ -24,6 +25,10 @@
               <p class="region"> CCA2 : {{data?.cca2}}</p>
               <p class="region"> CCA3 : {{data?.cca3}}</p>
               <p class="capital"> IDD Code : {{data?.idd?.root}}</p>
+              
+              <div class="populations"> 
+                <ion-icon name="people-outline"></ion-icon> {{ data?.population }}
+              </div>
             </div>
         </div>
     </div>
